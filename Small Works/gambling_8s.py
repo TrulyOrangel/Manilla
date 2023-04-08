@@ -68,7 +68,3 @@ for i in range(n):
                  "{:^5.2f}".format(sum(nets)/(i+1)))
 
 print(Fore.YELLOW+"Average net after "+str(n)+" games was "+str(round(sum(nets)/len(nets),2))+Style.RESET_ALL)
-
-
-
-
