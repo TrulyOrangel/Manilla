@@ -1,3 +1,4 @@
+# started and finished 4/7/2023
 """ rules for monte carlo
 there are 2 reels that look like this:
 - - - - - - - - 8 (1 in 9)
