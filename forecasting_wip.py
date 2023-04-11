@@ -36,18 +36,18 @@ N_LINE = [(0.3*i)+r.random() for i in range(RESOLUTION)]
 ## FORECASTING FUNCTIONS ##
 #* all functions return a list of new values.
 def simpleMovingAverage(data, width):
+    iterations = len(timeSeries)
+    data = timeSeries[:]
     ma = []
 
-    i = 0
-    while i < len(data) - (width+1):
-        window = data[i:i+width]
-        ma.append(round(sum(window)/width, 2))
+    for _ in range(width):
+        data.insert(0, data[0])
+        data.append(data[-1])
 
-        i += 1
+    for i in range(iterations):
+        window = data[i:i+(2*width)+1]
+        ma.append(round(sum(window)/((width*2)+1), 2))
 
-    # ma is smaller than data by width+1
-    for i in range(width+1):
-        ma.append(ma[-1])
     return ma
 
 plt.plot(TIME, N_SINE, label="n_sine")
